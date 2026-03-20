@@ -1,0 +1,12 @@
+{
+  "name": "shared-todolist",
+  "version": "1.0.0",
+  "description": "Shared to-do list for small teams",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
