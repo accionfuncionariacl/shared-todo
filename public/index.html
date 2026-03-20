@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shared To-Do List</title>
+<title>Lista de Tareas · Acción Funcionaria</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #fdf6ec;
-    --card:      #fffcf7;
-    --card2:     #fff9f0;
-    --border:    #ecdfd0;
-    --text:      #3d2b1a;
-    --muted:     #a08060;
-    --accent:    #e07b39;
-    --accent-h:  #c96828;
-    --danger:    #d94f4f;
-    --sel:       #e07b39;
-    --sel-glow:  rgba(224,123,57,.18);
-    --shadow:    0 2px 10px rgba(100,60,20,.08);
-    --shadow-lg: 0 4px 20px rgba(100,60,20,.12);
+    --bg:        #1E1546;
+    --card:      #261c58;
+    --card2:     #2d2268;
+    --border:    #3d2e80;
+    --text:      #ede8ff;
+    --muted:     #9080c0;
+    --accent:    #F0C566;
+    --accent-h:  #d4a83e;
+    --danger:    #CA0C44;
+    --sel:       #F0C566;
+    --sel-glow:  rgba(240,197,102,.20);
+    --shadow:    0 2px 12px rgba(0,0,0,.35);
+    --shadow-lg: 0 4px 24px rgba(0,0,0,.5);
     --radius:    14px;
     --radius-sm: 9px;
   }
@@ -32,8 +32,8 @@
     font-family: 'Nunito', sans-serif;
     background: var(--bg);
     background-image:
-      radial-gradient(circle at 15% 20%, rgba(224,123,57,.06) 0%, transparent 50%),
-      radial-gradient(circle at 85% 80%, rgba(180,100,40,.05) 0%, transparent 50%);
+      radial-gradient(circle at 15% 20%, rgba(202,12,68,.12) 0%, transparent 50%),
+      radial-gradient(circle at 85% 80%, rgba(240,197,102,.06) 0%, transparent 50%);
     color: var(--text);
     min-height: 100vh;
   }
@@ -104,16 +104,6 @@
     gap: 6px;
   }
 
-  .toolbar-label {
-    font-size: 0.72rem;
-    color: var(--muted);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    margin-right: 2px;
-  }
-
   .toolbar button {
     display: inline-flex;
     align-items: center;
@@ -130,22 +120,16 @@
     transition: background .15s, border-color .15s, opacity .15s, transform .1s;
   }
   .toolbar button:hover:not(:disabled) {
-    background: #fff3e8;
+    background: #3a2e78;
     border-color: var(--accent);
+    color: var(--accent);
     transform: translateY(-1px);
   }
   .toolbar button:disabled { opacity: 0.3; cursor: default; transform: none; }
   .toolbar button.danger:hover:not(:disabled) {
-    background: #fff0f0;
+    background: rgba(202,12,68,.15);
     border-color: var(--danger);
-    color: var(--danger);
-  }
-
-  .toolbar-sep {
-    width: 1px;
-    height: 22px;
-    background: var(--border);
-    margin: 0 2px;
+    color: #ff6090;
   }
 
   .io-group {
@@ -167,7 +151,7 @@
     transition: background .15s, color .15s, border-color .15s;
   }
   .io-group button:hover {
-    background: #fff3e8;
+    background: #3a2e78;
     border-color: var(--accent);
     color: var(--accent);
   }
@@ -192,15 +176,15 @@
   }
   .swatch:hover { transform: scale(1.25); }
   .swatch.selected {
-    border-color: var(--text);
-    box-shadow: 0 0 0 2px rgba(61,43,26,.2);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(240,197,102,.35);
     transform: scale(1.1);
   }
   .swatch[data-color=""] {
-    background: #e8e0d6;
+    background: #3d2e80;
     background-image:
-      linear-gradient(135deg, #c8bfb5 25%, transparent 25%, transparent 75%, #c8bfb5 75%),
-      linear-gradient(135deg, #c8bfb5 25%, transparent 25%, transparent 75%, #c8bfb5 75%);
+      linear-gradient(135deg, #2d2060 25%, transparent 25%, transparent 75%, #2d2060 75%),
+      linear-gradient(135deg, #2d2060 25%, transparent 25%, transparent 75%, #2d2060 75%);
     background-size: 8px 8px;
     background-position: 0 0, 4px 4px;
   }
@@ -229,7 +213,7 @@
     padding: 10px 14px;
     border: 1.5px solid var(--border);
     border-radius: var(--radius-sm);
-    background: var(--bg);
+    background: #1a1240;
     font-family: 'Nunito', sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
@@ -237,7 +221,7 @@
     outline: none;
     transition: border-color .18s, box-shadow .18s;
   }
-  .add-form input[type="text"]::placeholder { color: #c0a888; }
+  .add-form input[type="text"]::placeholder { color: #6858a8; }
   .add-form input[type="text"]:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px var(--sel-glow);
@@ -251,7 +235,7 @@
   .add-btn {
     padding: 10px 22px;
     background: var(--accent);
-    color: #fff;
+    color: #1E1546;
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
@@ -260,14 +244,14 @@
     font-weight: 800;
     letter-spacing: 0.02em;
     transition: background .15s, transform .1s, box-shadow .15s;
-    box-shadow: 0 2px 8px rgba(224,123,57,.35);
+    box-shadow: 0 2px 8px rgba(240,197,102,.3);
     white-space: nowrap;
     margin-left: auto;
   }
   .add-btn:hover {
     background: var(--accent-h);
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(224,123,57,.4);
+    box-shadow: 0 4px 14px rgba(240,197,102,.4);
   }
   .add-btn:active { transform: translateY(0); }
 
@@ -311,34 +295,34 @@
   }
 
   .todo-row.urgent {
-    background: #fff5f0;
-    border-color: #f5b89a;
-    border-left-color: #e05020;
+    background: rgba(202,12,68,.18);
+    border-color: rgba(202,12,68,.5);
+    border-left-color: #CA0C44;
   }
 
-  /* color left-border accents */
-  .todo-row[data-color="red"]    { background: #fff5f5; border-left-color: #e53935; border-color: #fdd; }
-  .todo-row[data-color="orange"] { background: #fff8f2; border-left-color: #fb8c00; border-color: #fde8cc; }
-  .todo-row[data-color="yellow"] { background: #fffef0; border-left-color: #e6b800; border-color: #f5e8a0; }
-  .todo-row[data-color="green"]  { background: #f4fdf5; border-left-color: #43a047; border-color: #c5e8c7; }
-  .todo-row[data-color="teal"]   { background: #f0fbfc; border-left-color: #00acc1; border-color: #b2e8ef; }
-  .todo-row[data-color="blue"]   { background: #f3f8ff; border-left-color: #1e88e5; border-color: #c5dcf7; }
-  .todo-row[data-color="purple"] { background: #faf4ff; border-left-color: #8e24aa; border-color: #ddb8ee; }
-  .todo-row[data-color="pink"]   { background: #fff4f8; border-left-color: #e91e63; border-color: #f7c0d5; }
+  /* color left-border accents — dark mode tints */
+  .todo-row[data-color="red"]    { background: rgba(229,57,53,.14);  border-left-color: #e53935; border-color: rgba(229,57,53,.35); }
+  .todo-row[data-color="orange"] { background: rgba(251,140,0,.12);  border-left-color: #fb8c00; border-color: rgba(251,140,0,.3); }
+  .todo-row[data-color="yellow"] { background: rgba(230,184,0,.12);  border-left-color: #e6b800; border-color: rgba(230,184,0,.3); }
+  .todo-row[data-color="green"]  { background: rgba(67,160,71,.12);  border-left-color: #43a047; border-color: rgba(67,160,71,.3); }
+  .todo-row[data-color="teal"]   { background: rgba(0,172,193,.12);  border-left-color: #00acc1; border-color: rgba(0,172,193,.3); }
+  .todo-row[data-color="blue"]   { background: rgba(30,136,229,.12); border-left-color: #1e88e5; border-color: rgba(30,136,229,.3); }
+  .todo-row[data-color="purple"] { background: rgba(142,36,170,.14); border-left-color: #b040cc; border-color: rgba(142,36,170,.35); }
+  .todo-row[data-color="pink"]   { background: rgba(233,30,99,.12);  border-left-color: #e91e63; border-color: rgba(233,30,99,.3); }
 
   /* urgent always overrides */
-  .todo-row.urgent[data-color] { background: #fff5f0; border-left-color: #e05020; border-color: #f5b89a; }
+  .todo-row.urgent[data-color] { background: rgba(202,12,68,.18); border-left-color: #CA0C44; border-color: rgba(202,12,68,.5); }
 
   .todo-dot {
     width: 11px;
     height: 11px;
     border-radius: 50%;
     flex-shrink: 0;
-    background: #d5c5b0;
+    background: #5040a0;
     transition: background .15s;
   }
 
-  .todo-row.urgent .todo-dot                { background: #e05020; }
+  .todo-row.urgent .todo-dot                { background: #CA0C44; }
   .todo-row[data-color="red"]    .todo-dot  { background: #e53935; }
   .todo-row[data-color="orange"] .todo-dot  { background: #fb8c00; }
   .todo-row[data-color="yellow"] .todo-dot  { background: #e6b800; }
@@ -347,7 +331,7 @@
   .todo-row[data-color="blue"]   .todo-dot  { background: #1e88e5; }
   .todo-row[data-color="purple"] .todo-dot  { background: #8e24aa; }
   .todo-row[data-color="pink"]   .todo-dot  { background: #e91e63; }
-  .todo-row.urgent[data-color]   .todo-dot  { background: #e05020; }
+  .todo-row.urgent[data-color]   .todo-dot  { background: #CA0C44; }
 
   .todo-text {
     flex: 1;
@@ -364,18 +348,18 @@
 
   .todo-assignee {
     font-size: 0.75rem;
-    color: var(--muted);
+    color: var(--accent);
     white-space: nowrap;
     flex-shrink: 0;
     font-weight: 700;
-    background: rgba(160,128,96,.1);
+    background: rgba(240,197,102,.12);
     border-radius: 20px;
     padding: 2px 8px;
   }
 
   .urgent-badge {
     font-size: 0.68rem;
-    background: #e05020;
+    background: #CA0C44;
     color: #fff;
     border-radius: 5px;
     padding: 2px 7px;
@@ -397,19 +381,39 @@
     display: block;
     font-size: 2rem;
     margin-bottom: 12px;
-    opacity: 0.4;
+    opacity: 0.3;
+    color: var(--accent);
   }
 
   #file-input { display: none; }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 480px) {
+  @media (max-width: 560px) {
     .app { padding: 20px 12px 40px; }
     .header-left h1 { font-size: 1.6rem; }
-    .io-group { margin-left: 0; }
-    .add-btn { width: 100%; margin-left: 0; }
+
+    /* Toolbar: wrap to two rows gracefully */
+    .toolbar-row {
+      gap: 5px;
+      row-gap: 8px;
+    }
+    .io-group {
+      margin-left: 0;
+      width: 100%;
+      justify-content: flex-end;
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      margin-top: 2px;
+    }
+    /* Add form */
     .add-form-row2 { gap: 6px; }
-    .add-form .assignee-input { width: 100%; flex: 1 1 100%; }
+    .add-form .assignee-input { flex: 1 1 100%; width: 100%; }
+    .add-btn { width: 100%; margin-left: 0; }
+
+    /* Task rows: tighter on small screens */
+    .todo-row { padding: 11px 13px; }
+    .todo-text { font-size: 0.88rem; }
+    .urgent-badge { font-size: 0.64rem; padding: 2px 5px; }
   }
 </style>
 </head>
@@ -417,8 +421,8 @@
 <div class="app">
   <header>
     <div class="header-left">
-      <h1>To-Do List</h1>
-      <div class="subtitle">shared · live</div>
+      <h1>Lista de Tareas<br><span style="font-size:.6em;letter-spacing:.01em;">Acción Funcionaria</span></h1>
+      <div class="subtitle">compartida · en vivo</div>
     </div>
     <span class="stats" id="stats"></span>
   </header>
@@ -427,17 +431,17 @@
   <div class="card">
     <div class="toolbar">
       <div class="toolbar-row">
-        <button id="btn-complete" disabled>✓ Complete</button>
-        <button id="btn-urgent" class="urgent-btn" disabled>⚡ Urgent</button>
-        <button id="btn-delete" class="danger" disabled>🗑 Delete</button>
-        <div class="toolbar-sep"></div>
-        <span class="toolbar-label">Color</span>
-        <div class="swatches" id="toolbar-swatches"></div>
+        <button id="btn-complete" disabled>✓ Completar</button>
+        <button id="btn-urgent" class="urgent-btn" disabled>⚡ Urgente</button>
+        <button id="btn-delete" class="danger" disabled>🗑 Eliminar</button>
         <div class="io-group">
-          <button id="btn-export">↓ Export</button>
-          <button id="btn-import">↑ Import</button>
+          <button id="btn-export">↓ Exportar</button>
+          <button id="btn-import">↑ Importar</button>
           <input type="file" id="file-input" accept=".json">
         </div>
+      </div>
+      <div class="toolbar-row">
+        <div class="swatches" id="toolbar-swatches"></div>
       </div>
     </div>
   </div>
@@ -446,12 +450,12 @@
   <div class="card">
     <div class="add-form">
       <div class="add-form-row1">
-        <input type="text" id="new-text" placeholder="What needs to get done?" autocomplete="off">
+        <input type="text" id="new-text" placeholder="¿Qué hay que hacer?" autocomplete="off">
       </div>
       <div class="add-form-row2">
-        <input type="text" id="new-assignee" class="assignee-input" placeholder="Assign to…" autocomplete="off">
+        <input type="text" id="new-assignee" class="assignee-input" placeholder="Asignar a…" autocomplete="off">
         <div class="swatches" id="add-swatches"></div>
-        <button class="add-btn" id="btn-add">Add Task</button>
+        <button class="add-btn" id="btn-add">Agregar tarea</button>
       </div>
     </div>
   </div>
@@ -483,7 +487,8 @@ function buildSwatches(container, getCurrent, onSelect) {
     s.className = 'swatch' + (getCurrent() === c ? ' selected' : '');
     s.dataset.color = c;
     if (COLOR_HEX[c]) s.style.background = COLOR_HEX[c];
-    s.title = c || 'none';
+    const COLOR_ES = { '': 'ninguno', red: 'rojo', orange: 'naranja', yellow: 'amarillo', green: 'verde', teal: 'verde azulado', blue: 'azul', purple: 'morado', pink: 'rosa' };
+    s.title = COLOR_ES[c] || c;
     s.addEventListener('click', () => onSelect(c));
     container.appendChild(s);
   });
@@ -547,14 +552,14 @@ function render(data) {
   const total = todos.length;
   const done = todos.filter(t => t.done).length;
   document.getElementById('stats').textContent =
-    total === 0 ? '' : `${total} task${total !== 1 ? 's' : ''} · ${done} done`;
+    total === 0 ? '' : `${total} tarea${total !== 1 ? 's' : ''} · ${done} completada${done !== 1 ? 's' : ''}`;
 
   list.innerHTML = '';
 
   if (sorted.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty-state';
-    empty.textContent = 'No tasks yet. Add one above!';
+    empty.textContent = '¡Sin tareas aún. Agrega una arriba!';
     list.appendChild(empty);
     updateToolbar();
     return;
@@ -582,7 +587,7 @@ function render(data) {
     if (todo.urgent && !todo.done) {
       const badge = document.createElement('span');
       badge.className = 'urgent-badge';
-      badge.textContent = 'URGENT';
+      badge.textContent = 'URGENTE';
       row.appendChild(badge);
     }
 
@@ -624,7 +629,7 @@ function updateToolbar() {
   document.getElementById('btn-urgent').disabled = dis || sel?.done;
   document.getElementById('btn-delete').disabled = dis;
   document.getElementById('btn-urgent').textContent =
-    sel && sel.urgent ? '⚡ Un-urgent' : '⚡ Urgent';
+    sel && sel.urgent ? '⚡ Quitar urgencia' : '⚡ Urgente';
 
   document.querySelectorAll('#toolbar-swatches .swatch').forEach(s => {
     s.style.opacity = dis ? '0.3' : '1';
@@ -719,11 +724,11 @@ document.getElementById('file-input').addEventListener('change', e => {
   reader.onload = async ev => {
     try {
       const data = JSON.parse(ev.target.result);
-      if (!Array.isArray(data)) { alert('Invalid file: expected a JSON array.'); return; }
+      if (!Array.isArray(data)) { alert('Archivo inválido: se esperaba un arreglo JSON.'); return; }
       await api('POST', '/api/todos/import', data);
       poll();
     } catch (err) {
-      alert('Failed to parse JSON file.');
+      alert('Error al leer el archivo JSON.');
     }
   };
   reader.readAsText(file);
